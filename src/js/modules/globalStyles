@@ -1,0 +1,9 @@
+const GlobalStyles = {
+  roboto: {
+
+  }
+}
+
+export {
+  GlobalStyles,
+}
