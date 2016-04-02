@@ -17,12 +17,14 @@ const styles = {
         alignItems: 'center'
     },
     logoDiv:{
-        backgroundColor: 'pink',
         display: 'flex',
         height: '28%',
         width: '100vw',
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    logoImg: {
+        maxWidth: '75%'
     },
     startButtonDiv:{
         backgroundColor: 'orange',
@@ -74,7 +76,7 @@ class Login extends Component {
             <div>
                 <div style={[styles.mainComponent]}>
                     <div style={[styles.logoDiv]}>
-                        <img src="menubar_LOGO.png" alt="1000 Faces Logo">
+                        <img src="assets/images/logo.png" alt="1000 Faces Logo" style={[styles.logoImg]} />
                     </div>
                     <div style={styles.startButtonDiv}>
                         <Link to="Main">Start</Link>
