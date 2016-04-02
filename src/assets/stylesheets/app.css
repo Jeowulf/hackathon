@@ -1,3 +1,10 @@
 #root {
   padding: 0;
 }
+
+@font-face {
+    font-family: Roboto;
+}
+@font-face {
+    font-family: Myriad Arabic;
+}
