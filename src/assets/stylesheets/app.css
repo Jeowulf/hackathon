@@ -3,6 +3,8 @@
 }
 
 @font-face {
-    font-family: myFirstFont;
-    src: url(sansation_light.woff);
+    font-family: Roboto;
+}
+@font-face {
+    font-family: Myriad Arabic;
 }

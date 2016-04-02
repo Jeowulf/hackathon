@@ -49,7 +49,7 @@ const dev = {
 const prod = {
     devtool: 'source-map',
     entry: [
-        './src/js/index.js',
+        './src/js/index',
     ],
     module: {
         loaders: [{

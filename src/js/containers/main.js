@@ -13,6 +13,7 @@ const styles = {
   mainContainer: {
     width: '100vw',
     height: '95vh',
+    fontFamily: 'Roboto',
   },
   row: {
     display: 'flex',
@@ -77,7 +78,7 @@ const styles = {
     alignItems: 'center',
   },
   content: {
-
+    color: 'grey',
   },
   behaviorRow: {
     display: 'flex',
@@ -97,6 +98,28 @@ const styles = {
     fontSize: '20px',
     display: 'flex',
     alignContent: 'center',
+  },
+  bottomRow: {
+    display: 'flex',
+    padding: '0px 20px',
+    height: '5vh',
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
+  bottomDiv: {
+    marginTop: '10px',
+    padding: '5px',
+    borderTop: '1px solid #d3d3d3',
+    display: 'flex',
+    height: '5vh',
+    width:  '90vw',
+    display: 'flex',
+    flexFlow: 'row nowrap',
+    justifyContent: 'flex-end',
+  },
+  socialIcons: {
+     color: '#4A90E2',
+     padding: '5px',
   }
 };
 
@@ -109,7 +132,6 @@ class Main extends Component {
     }
 
     toggleEnabled() {
-        debugger
         this.setState({ enabled: !this.state.enabled });
     }
 
@@ -118,6 +140,8 @@ class Main extends Component {
     }
 
     render() {
+      let dropDownMenu = null;
+
       const
         toggleEnabled = this.toggleEnabled;
         return (
@@ -136,23 +160,34 @@ class Main extends Component {
                         </div>
                     </div>
                 </div>
-                <div style={[ styles.row ]}>
+                <div style={[ styles.row, { padding: '0px 16px' } ]}>
                     <div style={styles.descriptions}>
                         <div style={styles.languageLocal}>
                             <div style={styles.header}>
                                 <div style={styles.learningWord}>Hugging<span style={{ marginTop: '5px' }}><i className="material-icons" style={styles.volume}>volume_up</i></span></div>
                             </div>
-                            <div style={styles.content}></div>
+                            <div style={[styles.content, { fontSize: '13px' } ]}>
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </div>
                         </div>
                     </div>
                     <div style={styles.descriptions}>
                         <div style={styles.languageForeign}>
-                            <div style={styles.header}></div>
-                            <div style={styles.content}></div>
+                            <div style={[styles.header, { fontSize: '25px' } ]}>
+                              عناق
+                            </div>
+                            <div style={[{ fontFamily: 'Myriad Arabic', fontSize: '16px' }, styles.content]}>
+                              قد بلا دخول كانت كنقطة. ثم قادة ساعة للحكومة يبق. من سبتمبر وحرمان ذلك, يبق الضروري الثالث٬ الواقعة عل, هذه أي الأوروبيّون.
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div style={[ styles.row ]}>
+                <div style={[ styles.bottomRow ]}>
+                  <div style={[styles.bottomDiv]}>
+                    <i className="material-icons .md-5" style={styles.socialIcons}>share</i>
+                    <i className="material-icons .md-5" style={styles.socialIcons}>chat</i>
+                    <i className="material-icons .md-5" style={styles.socialIcons}>favorite</i>
+                  </div>
                 </div>
             </div>
         );
