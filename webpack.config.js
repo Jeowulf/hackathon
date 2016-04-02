@@ -48,6 +48,17 @@ const dev = {
 
 const prod = {
     devtool: 'source-map',
+    entry: [
+        './src/js/index.js',
+    ],
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            loaders: ['react-hot', 'babel'],
+            include: path.join(__dirname, 'src/js'),
+            exclude: path.join(__dirname, 'node_modules'),
+        }],
+    },
     plugins: [
         new webpack.DefinePlugin({
           'process.env': {
@@ -58,6 +69,7 @@ const prod = {
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
           compress: {
+            // minimize: true,
             warnings: false,
           },
         }),
