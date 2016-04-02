@@ -10,24 +10,57 @@ import MenuAndSettings from './menuAndSettings';
 import { Link } from 'react-router';
 
 const styles = {
-    base: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    background: 'blue',
-    border: 0,
-    borderRadius: 4,
-    color: 'white',
-    padding: '1.5em'
+  mainContainer: {
+    width: '100vw',
+    height: '95vh',
   },
-  rowContainer: {
+  row: {
     display: 'flex',
-    flexFlow: 'row-nowrap',
+    flexFlow: 'row nowrap',
     justifyContent: 'space-between',
   },
-  colContainer: {
+  col: {
     display: 'flex',
     flexFlow: 'col-nowrap',
-  }
+    justifyContent: 'space-between',
+  },
+  icons: {
+    color: 'white',
+  },
+  culturalnorm: {
+    backgroundColor: '#d3d3d3',
+    borderRadius: '15px',
+    fontWeight: 'bold',
+    padding: '2px 15px',
+    border: '1px solid grey',
+    flex: '1 1 auto',
+  },
+  feedImage: {
+    height: '50vh',
+    backgroundImage: `url('assets/images/photo_HUGGING.png')`,
+    width: '100vw',
+    justifyContent: 'space-between',
+    display: 'flex',
+    flexFlow: 'column nowrap',
+  },
+  descriptions: {
+    width: '50vw',
+    padding: '5px',
+  },
+  languageLocal: {
+    display: 'flex',
+    flexFlow: 'column nowrap',
+  },
+  languageForeign: {
+    display: 'flex',
+    flexFlow: 'column nowrap',
+  },
+  header: {
+
+  },
+  content: {
+
+  },
 };
 
 class Main extends Component {
@@ -51,7 +84,34 @@ class Main extends Component {
       const
         toggleEnabled = this.toggleEnabled;
         return (
-            <div>
+            <div styles={styles.mainContainer}>
+                <div style={[ styles.row, { backgroundColor: '#4A90E2' } ]}>
+                    <i className="material-icons md-18" style={styles.icons}>menu</i>
+                    <img src={'assets/images/menubar_LOGO.png'} alt="menuLogo" />
+                    <i className="material-icons md-18" style={styles.icons}>book</i>
+                </div>
+                <div style={[ styles.row ]}>
+                    <div style={styles.feedImage}>
+                        <div style={ { display: 'flex', flex: '5 1 auto' } }></div>
+                        <div><span style={styles.culturalnorm}>#culturalnorm</span></div>
+                    </div>
+                </div>
+                <div style={[ styles.row ]}>
+                    <div style={styles.descriptions}>
+                        <div style={styles.languageLocal}>
+                            <div style={styles.header}></div>
+                            <div style={styles.content}></div>
+                        </div>
+                    </div>
+                    <div style={styles.descriptions}>
+                        <div style={styles.languageForeign}>
+                            <div style={styles.header}></div>
+                            <div style={styles.content}></div>
+                        </div>
+                    </div>
+                </div>
+                <div style={[ styles.row ]}>
+                </div>
             </div>
         );
     }
