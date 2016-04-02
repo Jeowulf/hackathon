@@ -63,6 +63,7 @@ class Main extends Component {
                 <h1 style={styles.base}>This is the main component it is {special}</h1>
                 <button onClick={onclick}></button>
                 <Dumb />
+                <i className="material-icons">face</i>
                 <Feed special={'special'}/>
                 <Login special={'special'}/>
                 <Longform special={'special'}/>
