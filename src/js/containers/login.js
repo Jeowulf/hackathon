@@ -8,8 +8,31 @@ import { Link } from 'react-router';
 //use flexbox for styling "https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
 const styles = {
     mainComponent: {
-        backgroundColor: 'blue',
+        backgroundColor: '#4A90E2',
+        display: 'flex',
+        flexFlow: 'column wrap',
+        height: '100vh',
+        width: '100vw',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
+    logoDiv:{
+        backgroundColor: 'pink',
+        display: 'flex',
+        height: '28%',
+        width: '100vw',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    startButtonDiv:{
+        backgroundColor: 'orange',
+        color: 'blue',
+        display: 'flex',
+        height: '5%',
+        width: '30%',
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
 };
 
 class Login extends Component {
@@ -49,10 +72,14 @@ class Login extends Component {
         //bind your functions to allow them access to the this functionality
         return (
             <div>
-                <div style={styles.mainComponent}>
-                    Your component build goes here
+                <div style={[styles.mainComponent]}>
+                    <div style={[styles.logoDiv]}>
+                        <img src="menubar_LOGO.png" alt="1000 Faces Logo">
+                    </div>
+                    <div style={styles.startButtonDiv}>
+                        <Link to="Main">Start</Link>
+                    </div>
                 </div>
-                <Link to="Main">Start</Link>
             </div>
         );
     }
