@@ -7,6 +7,7 @@ import Login from './login';
 import Longform from './longform';
 import GraphicNovel from './graphicNovel';
 import MenuAndSettings from './menuAndSettings';
+import { Link } from 'react-router';
 
 const styles = {
     base: {
@@ -64,11 +65,7 @@ class Main extends Component {
                 <button onClick={onclick}></button>
                 <Dumb />
                 <i className="material-icons">face</i>
-                <Feed special={'special'}/>
-                <Login special={'special'}/>
-                <Longform special={'special'}/>
-                <GraphicNovel special={'special'}/>
-                <MenuAndSettings special={'special'}/>
+                <Link to="feed">Feed</Link>
             </div>
         );
     }

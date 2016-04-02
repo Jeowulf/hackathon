@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { Router, Route, Link, browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { makeFunOfHim } from '../actions/crazyPerson';
 import Main from './main.js';
@@ -20,6 +21,7 @@ class App extends Component {
                     <div>Current State: {crazyPerson.status}</div>
                     <button onClick={onclick}>Click Me!</button>
                 </div>
+
                 <Main
                     special={"special"}
                     dave={dave} />
@@ -27,6 +29,7 @@ class App extends Component {
         );
     }
 }
+
 
 App.propTypes = {
     crazyPerson: PropTypes.object.isRequired,
