@@ -84,7 +84,7 @@ class Main extends Component {
       const
         toggleEnabled = this.toggleEnabled;
         return (
-            <div styles={styles.mainContainer}>
+            <div style={styles.mainContainer}>
                 <div style={[ styles.row, { backgroundColor: '#4A90E2' } ]}>
                     <i className="material-icons md-18" style={styles.icons}>menu</i>
                     <img src={'assets/images/menubar_LOGO.png'} alt="menuLogo" />
