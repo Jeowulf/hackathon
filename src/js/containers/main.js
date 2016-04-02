@@ -49,23 +49,9 @@ class Main extends Component {
 
     render() {
       const
-        special = this.props.special,
         toggleEnabled = this.toggleEnabled;
         return (
             <div>
-                <div style={styles.rowContainer}>
-                    <div style={styles.colContainer} onClick={toggleEnabled.bind(this)}>Last Day</div>
-                    <div style={styles.colContainer}>Of School</div>
-                </div>
-                <div style={styles.rowContainer}>
-                    <div style={styles.colContainer}>first</div>
-                    <div style={styles.colContainer}>most</div>
-                </div>
-                <h1 style={styles.base}>This is the main component it is {special}</h1>
-                <button onClick={onclick}></button>
-                <Dumb />
-                <i className="material-icons">face</i>
-                <Link to="feed">Feed</Link>
             </div>
         );
     }
@@ -75,8 +61,6 @@ Main = Radium(Main);
 
 
 Main.propTypes = {
-    special: PropTypes.string.isRequired,
-    dave: PropTypes.string,
 }
 
 export default Main;

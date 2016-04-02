@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { makeFunOfHim } from '../actions/crazyPerson';
-import Main from './main.js';
+import Login from './login.js';
 
 class App extends Component {
     constructor(props) {
@@ -16,15 +16,7 @@ class App extends Component {
             dave = 'dave';
         return (
             <div>
-                <div>
-                    <h1>Crazy People!!!</h1>
-                    <div>Current State: {crazyPerson.status}</div>
-                    <button onClick={onclick}>Click Me!</button>
-                </div>
-
-                <Main
-                    special={"special"}
-                    dave={dave} />
+               <Login />
             </div>
         );
     }

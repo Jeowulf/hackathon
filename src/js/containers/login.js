@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Radium from 'radium';
+import Main from './main';
+import { Link } from 'react-router';
 
 //define your styling with Javascript objects
 //use flexbox for styling "https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
@@ -42,13 +44,15 @@ class Login extends Component {
     render() {
         //define your content- JSX variables and dynamic JSX
       const
-        special = this.props.special,
         toggleEnabled = this.toggleEnabled;
         //return your JSX with defined content (anything in the render method occurs anytime a change occurs, to limit rerendering add changes to component lifecycle)
         //bind your functions to allow them access to the this functionality
         return (
-            <div style={styles.mainComponent}>
-                Your component build goes here
+            <div>
+                <div style={styles.mainComponent}>
+                    Your component build goes here
+                </div>
+                <Link to="Main">Start</Link>
             </div>
         );
     }
@@ -58,7 +62,6 @@ Login = Radium(Login);
 
 //define your incoming props
 Login.propTypes = {
-    special: PropTypes.string.isRequired,
 }
 
 export default Login;
