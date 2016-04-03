@@ -8,7 +8,9 @@ import Radium from 'radium';
 const styles = {
   mainContainer: {
     width: '100vw',
-    height: '95vh',
+    height: '100vh',
+    display: 'flex',
+    flexFlow: 'column nowrap',
   },
   row: {
     display: 'flex',
@@ -21,7 +23,7 @@ const styles = {
     justifyContent: 'space-between',
   },
   topRow: {
-    disply: 'flex',
+    display: 'flex',
     alignItems: 'center',
     backgroundColor: '#4A90E2',
     padding: '10px',
@@ -173,8 +175,26 @@ const styles = {
     borderBottomColor: '#E6E6E6',
     borderBottomWidth: 'thin',
     borderBottomStyle: 'solid'
+  },
+  graphicNovelMainDiv: {
+    display: 'flex',
+    flexFlow: 'column nowrap',
+    flex: 'auto',
+    alignContent: 'stretch',
+    justifyContent: 'flex-start',
+  },
+  graphicNovelChildDivTop: {
+    backgroundImage: `url('assets/images/walkingdead_TOP.png')`,
+    flex: '1 1 auto',
+    backgroundSize: '100% 100%',
+    display: 'flex',
+  },
+  graphicNovelChildDivBottom: {
+    backgroundImage: `url('assets/images/walkingdead_BOTTOM.png')`,
+    flex: '1 1 auto',
+    backgroundSize: '100% 100%',
+    display: 'flex',
   }
-
 };
 
 class GraphicNovel extends Component {
@@ -219,162 +239,28 @@ class GraphicNovel extends Component {
 
     render() {
 
-     let dropDownMenu = null;
-
-     if (this.state.down === true) {
-        dropDownMenu = (
-            <div style={styles.dropmenu}>
-              <div style={styles.dropmenuTopDiv}>
-                <i className="material-icons md-18" style={[styles.closeIcon]} onClick={this.toggleDropMenu.bind(this)}>close</i>
-                <div style={styles.nameForeign}>
-                  خليفة
-                </div>
-                <div style={styles.robotoText}>
-                  012-345-67890
-                </div>
-              </div>
-              <div style={styles.dropDownMainTextDiv}>
-                <div style={[styles.RobotoMedium]}>
-                  MY ACCOUNT | حسابي:
-                </div>
-              </div>
-              <div style={styles.dropDownMainTextDiv}>
-                <div style={styles.robotoLight14}>
-                  Change phone number & name
-                </div>
-                <div style={styles.descriptionForeign}>
-                  تغيير رقم الهاتف واسم
-                </div>
-                  <i className="material-icons md-18" style={styles.menuIcons}>phone</i>
-              </div>
-
-               <div style={styles.dropDownMainTextDiv}>
-                <div style={styles.robotoLight14}>
-                  Change password
-                </div>
-                <div style={styles.descriptionForeign}>
-                  تغيير كلمة السر
-                </div>
-                  <i className="material-icons md-18" style={styles.menuIcons}>lock</i>
-              </div>
-
-             <div style={styles.dropDownMainTextDiv}>
-              <div style={styles.robotoLight14}>
-                Change language and country
-              </div>
-              <div style={styles.descriptionForeign}>
-                تغيير اللغة والبلد
-              </div>
-                <i className="material-icons md-18" style={styles.menuIcons}>language</i>
-            </div>
-
-            <div style={[styles.dropDownMainTextDiv, styles.bottomLine]}>
-              <div style={styles.robotoLight14}>
-                Change home country
-              </div>
-              <div style={styles.descriptionForeign}>
-               تغيير البلد المستهدف
-              </div>
-                <i className="material-icons md-18" style={[styles.menuIcons]}>pin_drop</i>
-            </div>
-
-
-              <div style={styles.dropDownMainTextDiv}>
-                <div style={[styles.RobotoMedium]}>
-                  CONNECT | ربط
-                </div>
-              </div>
-              <div style={styles.dropDownMainTextDiv}>
-                <div style={styles.robotoLight14}>
-                  Tutors
-                </div>
-                <div style={styles.descriptionForeign}>
-                  الاولياء
-                </div>
-                  <i className="material-icons md-18" style={styles.menuIcons}>school</i>
-              </div>
-
-               <div style={styles.dropDownMainTextDiv}>
-                <div style={styles.robotoLight14}>
-                  Community
-                </div>
-                <div style={styles.descriptionForeign}>
-                  مجتمع
-                </div>
-                  <i className="material-icons md-18" style={styles.menuIcons}>person_pin</i>
-              </div>
-
-             <div style={[styles.dropDownMainTextDiv, styles.bottomLine]}>
-              <div style={styles.robotoLight14}>
-                Parental Controls
-              </div>
-              <div style={styles.descriptionForeign}>
-                الرقابة الأبوية
-              </div>
-                <i className="material-icons md-18" style={styles.menuIcons}>settings</i>
-            </div>
-
-
-            <div style={styles.dropDownMainTextDiv}>
-              <div style={[styles.RobotoMedium]}>
-                LOG OUT | خروج
-              </div>
-            </div>
-            <div style={styles.dropDownMainTextDiv}>
-              <div style={styles.robotoLight14}>
-                Log out of my account
-              </div>
-              <div style={styles.descriptionForeign}>
-                تسجيل الخروج من حسابي
-              </div>
-                <i className="material-icons md-18" style={styles.menuIcons}>exit_to_app</i>
-            </div>
-
-
-          </div>
-        )
-     }
-
       const
         toggleEnabled = this.toggleEnabled,
         toggleDropMenu = this.toggleDropMenu;
 
         return (
             <div style={styles.mainContainer}>
-                {dropDownMenu}
                 <div style={[ styles.row, styles.topRow ]}>
-                    <i className="material-icons md-18" style={styles.icons} onClick={toggleDropMenu.bind(this)}>menu</i>
+                    <i className="material-icons md-18" style={styles.icons} onClick={toggleDropMenu.bind(this)}>chevron_left</i>
                     <img style={styles.menuLogo} src={'assets/images/menubar_LOGO.png'} alt="menuLogo" />
-                    <i className="material-icons md-18" style={styles.icons}>book</i>
+                    <i className="material-icons md-18" style={styles.icons}>view_list</i>
                 </div>
-                <div style={[ styles.row ]}>
-                    <div style={styles.feedImage}>
-                        <div style={ { display: 'flex', flex: '5 1 auto' } }></div>
-                        <div style={styles.behaviorRow}>
-                            <span style={[styles.culturalnorm, { margin: '0px 5px', padding: '8px 4px', }]}>behavior | <span style={{fontWeight: 'normal'}}>behavior</span></span>
-                            <div style={[styles.culturalnorm, { padding: '3.5px 4px' }]}><i className="material-icons .md-5" style={styles.icons}>favorite</i></div>
-                        </div>
-                    </div>
-                </div>
-                <div style={[ styles.row ]}>
-                    <div style={styles.descriptions}>
-                        <div style={styles.languageLocal}>
-                            <div style={styles.header}>
-                                <div style={styles.learningWord}>Hugging<span style={{ marginTop: '5px' }}><i className="material-icons" style={styles.volume}>volume_up</i></span></div>
-                            </div>
-                            <div style={styles.content}></div>
-                        </div>
-                    </div>
-                    <div style={styles.descriptions}>
-                        <div style={styles.languageForeign}>
-                            <div style={styles.header}></div>
-                            <div style={styles.content}></div>
-                        </div>
-                    </div>
-                </div>
-                <div style={[ styles.row ]}>
+
+                <div style={styles.graphicNovelMainDiv}>
+                  <div style={styles.graphicNovelChildDivTop}>
+
+                  </div>
+                  <div style={styles.graphicNovelChildDivBottom}>
+
+                  </div>
                 </div>
             </div>
+
         );
     }
 }
