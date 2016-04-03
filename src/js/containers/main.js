@@ -158,6 +158,10 @@ styles = {
   socialIcons: {
      color: '#4A90E2',
      padding: '5px',
+  },
+  chat: {
+    width: '5vw',
+    paddingTop: '5px',
   }
 };
 
@@ -182,9 +186,22 @@ class Main extends Component {
     }
 
     render() {
-      let content = null;
+      let content = null,
+          expansion = null;
 
-      content = contentData.map((c) => {
+      if (this.state.expanded) {
+        expansion = (
+            <div>
+              <img style={styles.middleContent} src={'assets/images/comments.png'} alt="menuLogo" />
+            </div>
+        )
+      }
+
+      content = contentData.map((c, idx) => {
+        let chat = (<div><i className="material-icons .md-5" style={styles.socialIcons}>chat_bubble</i></div>);
+        if (idx === 2) {
+          chat = (<div><img style={styles.chat} src={'assets/images/chat.png'} alt="menuLogo" /></div>);
+        }
         return (
                 <div style={styles.scrollingContainer}>
                   <div style={[ styles.row ]}>
@@ -221,10 +238,11 @@ class Main extends Component {
                   <div style={[ styles.bottomRow ]}>
                     <div style={[styles.bottomDiv]}>
                       <i className="material-icons .md-5" style={styles.socialIcons}>share</i>
-                      <i className="material-icons .md-5" style={styles.socialIcons}>chat</i>
+                        {chat}
                       <i className="material-icons .md-5" style={styles.socialIcons}>favorite</i>
                     </div>
                   </div>
+                  {expansion}
                 </div>
         );
       });
