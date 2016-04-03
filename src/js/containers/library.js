@@ -287,6 +287,7 @@ class Library extends Component {
     toggleDropMenu() {
         this.setState({ down: !this.state.down });
         console.log('dropmenu dropped');
+    }
 
     onClickChemistry () {
       browserHistory.push('/chemistry');

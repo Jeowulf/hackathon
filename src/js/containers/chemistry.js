@@ -340,7 +340,7 @@ class Chemistry extends Component {
                 <div>
                     <div>
                         <div style={[ styles.row, styles.topRow ]}>
-                        <i className="material-icons md-18" style={styles.icons} onClick={toggleDropMenu.bind(this)}>chevron_left</i>
+                        <i className="material-icons md-18" style={styles.icons} onClick={nextPage.bind(this)}>chevron_left</i>
                         <img style={styles.menuLogo} src={'assets/images/menubar_LOGO.png'} alt="menuLogo" />
                         <i className="material-icons md-18" style={styles.icons}>view_list</i>
                     </div>
@@ -411,7 +411,7 @@ class Chemistry extends Component {
             <div style={styles.mainContainer}>
                     <div>
                         <div style={[ styles.row, styles.topRow ]}>
-                        <i className="material-icons md-18" style={styles.icons} onClick={toggleDropMenu.bind(this)}>chevron_left</i>
+                        <i className="material-icons md-18" style={styles.icons} onClick={this.nextPage.bind(this)}>chevron_left</i>
                         <img style={styles.menuLogo} src={'assets/images/menubar_LOGO.png'} alt="menuLogo" />
                         <i className="material-icons md-18" style={styles.icons} onClick={this.nextPage.bind(this)}>view_list</i>
                         </div>
