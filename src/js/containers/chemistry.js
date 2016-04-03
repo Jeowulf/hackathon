@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Radium from 'radium';
+import Main from './library';
+import { Link, browserHistory } from 'react-router';
 
 //define your styling with Javascript objects
 //use flexbox for styling "https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
@@ -39,6 +41,7 @@ styles = {
     backgroundColor: '#4A90E2',
     padding: '10px',
     height: '9.5vh',
+    boxShadow: '0px 3px 10px #26466D',
   },
   icons: {
     color: 'white',
@@ -299,6 +302,10 @@ class Chemistry extends Component {
         }
     }
 
+    nextPage () {
+      browserHistory.push('/library');
+    }
+
     render() {
       let
         expandedMiddle = (<div></div>),
@@ -333,7 +340,7 @@ class Chemistry extends Component {
                 <div>
                     <div>
                         <div style={[ styles.row, styles.topRow ]}>
-                        <i className="material-icons md-18" style={styles.icons} onClick={toggleDropMenu.bind(this)}>chevron_left</i>
+                        <i className="material-icons md-18" style={styles.icons} onClick={nextPage.bind(this)}>chevron_left</i>
                         <img style={styles.menuLogo} src={'assets/images/menubar_LOGO.png'} alt="menuLogo" />
                         <i className="material-icons md-18" style={styles.icons}>view_list</i>
                     </div>
@@ -404,9 +411,9 @@ class Chemistry extends Component {
             <div style={styles.mainContainer}>
                     <div>
                         <div style={[ styles.row, styles.topRow ]}>
-                        <i className="material-icons md-18" style={styles.icons} onClick={toggleDropMenu.bind(this)}>chevron_left</i>
+                        <i className="material-icons md-18" style={styles.icons} onClick={this.nextPage.bind(this)}>chevron_left</i>
                         <img style={styles.menuLogo} src={'assets/images/menubar_LOGO.png'} alt="menuLogo" />
-                        <i className="material-icons md-18" style={styles.icons}>view_list</i>
+                        <i className="material-icons md-18" style={styles.icons} onClick={this.nextPage.bind(this)}>view_list</i>
                         </div>
                     </div>
                 {content}
