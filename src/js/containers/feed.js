@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Radium from 'radium';
+import Main from './main';
+import { Link, browserHistory } from 'react-router';
 
 //define your styling with Javascript objects
 //use flexbox for styling "https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
