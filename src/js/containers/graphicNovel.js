@@ -5,7 +5,18 @@ import Radium from 'radium';
 //define your styling with Javascript objects
 //use flexbox for styling "https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
 
-const styles = {
+
+
+
+const
+contentData = [
+    {
+        top: 'that',
+        bottom: '',
+        expansion: '',
+    },
+],
+styles = {
   mainContainer: {
     width: '100vw',
     height: '100vh',
@@ -184,22 +195,24 @@ const styles = {
     justifyContent: 'flex-start',
   },
   graphicNovelChildDivTop: {
-    backgroundImage: `url('assets/images/walkingdead_TOP.png')`,
     flex: '1 1 auto',
     backgroundSize: '100% 100%',
     display: 'flex',
     flexFlow: 'row nowrap',
+    justifyContent: 'flex-end',
+    height: '45.75vh',
   },
   graphicNovelChildDivBottom: {
-    backgroundImage: `url('assets/images/walkingdead_BOTTOM.png')`,
     flex: '1 1 auto',
     backgroundSize: '100% 100%',
     display: 'flex',
+    height: '45.75vh',
   },
   helpIcon: {
     display: 'flex',
     height: '7vmin',
     width: '5.5vmin',
+    marginRight: '30vw',
   },
   helpIconContainer: {
     display: 'flex',
@@ -207,6 +220,21 @@ const styles = {
     flexFlow: 'column nowrap',
     alignItems: 'flex-end',
   },
+  bookmark: {
+    color: '#4A90E2',
+    marginRight: '3vw',
+  },
+  graphicNovelMainDivExpanded: {
+    display: 'flex',
+    flexFlow: 'column nowrap',
+    flex: 'auto',
+    alignContent: 'stretch',
+    justifyContent: 'flex-start',
+  },
+  middleContent: {
+    height: '20vh',
+    width: '100vw',
+  }
 };
 
 class GraphicNovel extends Component {
@@ -214,8 +242,9 @@ class GraphicNovel extends Component {
         super(props);
         this.state = {
             enabled: true,
-            down: false
-
+            down: false,
+            bookMarked: true,
+            expanded: true,
         };
     }
     //set component initial state above
@@ -236,47 +265,151 @@ class GraphicNovel extends Component {
     }
 
     componentDidUpdate() {
-        if (this.state.down) {
-            console.log('its working');
-        }
     }
 
     componentWillUnmount() {
     }
 
+    toggleExpansion() {
+        this.setState({ expanded: !this.state.expanded });
+    }
+
     toggleDropMenu() {
-        this.setState({ down: !this.state.down });
+        this.setState({ bookMarked: !this.state.bookMarked });
         console.log('dropmenu dropped');
     }
 
+    toggleBookmarked() {
+        this.setState({ bookMarked: !this.state.bookMarked });
+    }
+
+    determineBookmarkIcon() {
+        if (this.state.bookMarked) {
+            return (
+                <div>
+                    <i className="material-icons md-18" style={styles.bookmark} onClick={toggleDropMenu.bind(this)}>bookmark</i>
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <i className="material-icons md-18" style={styles.bookmark} onClick={toggleDropMenu.bind(this)}>bookmark_border</i>
+                </div>
+            );
+        }
+    }
+
     render() {
+      let
+        expandedMiddle = (<div></div>),
+        graphicNovelMainDiv = styles.graphicNovelMainDiv,
+        content;
+
+        if (this.state.expanded && this.props.content === 'walking dead') {
+            expandedMiddle = (
+                <div>
+                    <img style={styles.middleContent} src={'assets/images/walkingdead_CONTENT (1).png'} alt="menuLogo" />
+                </div>
+            );
+            graphicNovelMainDiv = styles.graphicNovelMainDivExpanded;
+        } else if (this.props.content === 'chemistry') {
+            expandedMiddle = (
+                <div>
+                    <img style={styles.middleContent} src={'assets/images/generalchemistry_CONTENT (1).png'} alt="menuLogo" />
+                </div>
+            );
+            graphicNovelMainDiv = styles.graphicNovelMainDivExpanded;
+        }
 
       const
         toggleEnabled = this.toggleEnabled,
-        toggleDropMenu = this.toggleDropMenu;
+        toggleDropMenu = this.toggleDropMenu,
+        toggleExpansion = this.toggleExpansion,
+        bookmarkIcon = this.determineBookmarkIcon;
+
+        if (this.props.content === 'walking dead') {
+            content = contentData.map((c) => {
+            return (
+                <div>
+                    <div>
+                        <div style={[ styles.row, styles.topRow ]}>
+                        <i className="material-icons md-18" style={styles.icons} onClick={toggleDropMenu.bind(this)}>chevron_left</i>
+                        <img style={styles.menuLogo} src={'assets/images/menubar_LOGO.png'} alt="menuLogo" />
+                        <i className="material-icons md-18" style={styles.icons}>view_list</i>
+                    </div>
+
+                    <div style={graphicNovelMainDiv}>
+                      <div style={[styles.graphicNovelChildDivTop, { backgroundImage: `url('assets/images/walkingdead_TOP.png')` }]}>
+                        <div style={{ display: 'flex' }}>
+                        </div>
+                        <div style={{ display: 'flex' }}></div>
+                        <div style={styles.helpIconContainer}>
+                          <div style={{ display: 'flex' }}>
+                            <i className="material-icons md-18" style={styles.bookmark} onClick={toggleDropMenu.bind(this)}>bookmark_border</i>
+                          </div>
+                          <div style={{ display: 'flex' }}></div>
+                          <div style={{ display: 'flex' }}></div>
+                          <div style={{ display: 'flex' }}></div>
+                          <div style={{ display: 'flex' }}></div>
+                          <div style={{ display: 'flex' }}></div>
+                          <img style={styles.helpIcon} src={'assets/images/help.png'} alt="help" onClick={toggleExpansion.bind(this)} />
+                          <div style={{ display: 'flex' }}></div>
+
+                        </div>
+                      </div>
+                      {expandedMiddle}
+                      <div style={[styles.graphicNovelChildDivBottom, { backgroundImage: `url('assets/images/walkingdead_BOTTOM.png')`, }]}>
+                      </div>
+                    </div>
+                </div>
+                </div>
+            );
+        });
+        } else {
+            content = contentData.map((c) => {
+            return (
+                <div>
+
+
+                    <div style={graphicNovelMainDiv}>
+                      <div style={[styles.graphicNovelChildDivTop, { backgroundImage: `url('assets/images/generalchemistry_TOP.png')` }]}>
+                        <div style={{ display: 'flex' }}>
+                        </div>
+                        <div style={{ display: 'flex' }}></div>
+                        <div style={styles.helpIconContainer}>
+                          <div style={{ display: 'flex' }}>
+                            <i className="material-icons md-18" style={styles.bookmark} onClick={toggleDropMenu.bind(this)}>bookmark_border</i>
+                          </div>
+                          <div style={{ display: 'flex' }}></div>
+                          <div style={{ display: 'flex' }}></div>
+                          <div style={{ display: 'flex' }}></div>
+                          <div style={{ display: 'flex' }}></div>
+                          <div style={{ display: 'flex' }}></div>
+                          <img style={styles.helpIcon} src={'assets/images/help.png'} alt="help" onClick={toggleExpansion.bind(this)} />
+                          <div style={{ display: 'flex' }}></div>
+
+                        </div>
+                      </div>
+                      {expandedMiddle}
+                      <div style={[styles.graphicNovelChildDivBottom, { backgroundImage: `url('assets/images/generalchemistry_BOTTOM.png')`, }]}>
+                      </div>
+                    </div>
+                </div>
+            );
+        });
+        }
+
 
         return (
             <div style={styles.mainContainer}>
-                <div style={[ styles.row, styles.topRow ]}>
-                    <i className="material-icons md-18" style={styles.icons} onClick={toggleDropMenu.bind(this)}>chevron_left</i>
-                    <img style={styles.menuLogo} src={'assets/images/menubar_LOGO.png'} alt="menuLogo" />
-                    <i className="material-icons md-18" style={styles.icons}>view_list</i>
-                </div>
-
-                <div style={styles.graphicNovelMainDiv}>
-                  <div style={styles.graphicNovelChildDivTop}>
-                    <div style={{ display: 'flex' }}></div>
-                    <div style={{ display: 'flex' }}></div>
-                    <div style={styles.helpIconContainer}>
-                      <div style={{ display: 'flex' }}></div>
-                      <div style={{ display: 'flex' }}></div>
-                      <img style={styles.helpIcon} src={'assets/images/help.png'} alt="help" />
+                    <div>
+                        <div style={[ styles.row, styles.topRow ]}>
+                        <i className="material-icons md-18" style={styles.icons} onClick={toggleDropMenu.bind(this)}>chevron_left</i>
+                        <img style={styles.menuLogo} src={'assets/images/menubar_LOGO.png'} alt="menuLogo" />
+                        <i className="material-icons md-18" style={styles.icons}>view_list</i>
+                        </div>
                     </div>
-                  </div>
-                  <div style={styles.graphicNovelChildDivBottom}>
-
-                  </div>
-                </div>
+                {content}
             </div>
 
         );
