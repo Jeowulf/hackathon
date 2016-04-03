@@ -2,7 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Radium from 'radium';
 import Main from './main';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
+import { push } from 'react-router-redux';
+
 
 //define your styling with Javascript objects
 //use flexbox for styling "https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
@@ -43,11 +45,6 @@ const styles = {
     }
 };
 
-//code for optional start button on start page
-//   <div style={styles.startButtonDiv}>
-//     <Link to="Main">START</Link>
-//   </div>
-
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -66,6 +63,9 @@ class Login extends Component {
     }
 
     componentDidMount() {
+           setTimeout(function(){
+            browserHistory.push('/main');
+         }, 5000);
     }
 
     componentWillReceiveProps() {
