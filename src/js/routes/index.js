@@ -8,6 +8,7 @@ import MenuAndSettings from '../containers/menuAndSettings';
 import GraphicNovel from '../containers/graphicNovel';
 import Longform from '../containers/longform';
 import Library from '../containers/library';
+import Chemistry from '../containers/chemistry';
 
 
 
@@ -22,6 +23,7 @@ function getRouter(history) {
       <Route path="graphicNovel" component={GraphicNovel} />
       <Route path="longform" component={Longform} />
       <Route path="library" component={Library} />
+      <Route path="chemistry" component={Chemistry} />
     </Router>
   );
 }

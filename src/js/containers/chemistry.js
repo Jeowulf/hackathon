@@ -237,7 +237,7 @@ styles = {
   }
 };
 
-class GraphicNovel extends Component {
+class Chemistry extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -370,8 +370,9 @@ class GraphicNovel extends Component {
             return (
                 <div>
 
+
                     <div style={graphicNovelMainDiv}>
-                      <div style={[styles.graphicNovelChildDivTop, { backgroundImage: `url('assets/images/walkingdead_TOP.png')` }]}>
+                      <div style={[styles.graphicNovelChildDivTop, { backgroundImage: `url('assets/images/generalchemistry_TOP.png')` }]}>
                         <div style={{ display: 'flex' }}>
                         </div>
                         <div style={{ display: 'flex' }}></div>
@@ -390,10 +391,9 @@ class GraphicNovel extends Component {
                         </div>
                       </div>
                       {expandedMiddle}
-                      <div style={[styles.graphicNovelChildDivBottom, { backgroundImage: `url('assets/images/walkingdead_BOTTOM.png')`, }]}>
+                      <div style={[styles.graphicNovelChildDivBottom, { backgroundImage: `url('assets/images/generalchemistry_BOTTOM.png')`, }]}>
                       </div>
                     </div>
-
                 </div>
             );
         });
@@ -417,11 +417,11 @@ class GraphicNovel extends Component {
 }
 
 //required to allow the inline styling using radium
-GraphicNovel = Radium(GraphicNovel);
+Chemistry = Radium(Chemistry);
 
 //define your incoming props
-GraphicNovel.propTypes = {
+Chemistry.propTypes = {
 
 }
 
-export default GraphicNovel;
+export default Chemistry;
