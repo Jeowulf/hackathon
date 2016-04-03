@@ -9,7 +9,16 @@ import GraphicNovel from './graphicNovel';
 import MenuAndSettings from './menuAndSettings';
 import { Link } from 'react-router';
 
-const styles = {
+const contentData = [{
+  localPicWord: 'behavior',
+  foreignPicWord: 'behavior',
+  localContent: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  localHeader: 'Hugging',
+  foreignContent: 'قد بلا دخول كانت كنقطة. ثم قادة ساعة للحكومة يبق. من سبتمبر وحرمان ذلك, يبق الضروري الثالث٬ الواقعة عل, هذه أي الأوروبيّون.',
+  foreignHeader: 'عناق',
+
+}],
+styles = {
   mainContainer: {
     width: '100vw',
     height: '95vh',
@@ -140,12 +149,11 @@ class Main extends Component {
     }
 
     render() {
-      let dropDownMenu = null;
+      let content = null;
 
-      const
-        toggleEnabled = this.toggleEnabled;
+      content = contentData.map((c) => {
         return (
-            <div style={styles.mainContainer}>
+                <div>
                 <div style={[ styles.row, styles.topRow ]}>
                     <i className="material-icons md-18" style={styles.icons}>menu</i>
                     <img style={styles.menuLogo} src={'assets/images/menubar_LOGO.png'} alt="menuLogo" />
@@ -155,7 +163,7 @@ class Main extends Component {
                     <div style={styles.feedImage}>
                         <div style={ { display: 'flex', flex: '5 1 auto' } }></div>
                         <div style={styles.behaviorRow}>
-                            <span style={[styles.culturalnorm, { margin: '0px 5px', padding: '8px 4px', }]}>behavior | <span style={{fontWeight: 'normal'}}>behavior</span></span>
+                            <span style={[styles.culturalnorm, { margin: '0px 5px', padding: '8px 4px', }]}>{c.localPicWord} | <span style={{fontWeight: 'normal'}}>{c.foreignPicWord}</span></span>
                             <div style={[styles.culturalnorm, { padding: '3.5px 4px' }]}><i className="material-icons .md-5" style={styles.icons}>favorite</i></div>
                         </div>
                     </div>
@@ -164,20 +172,20 @@ class Main extends Component {
                     <div style={styles.descriptions}>
                         <div style={styles.languageLocal}>
                             <div style={styles.header}>
-                                <div style={styles.learningWord}>Hugging<span style={{ marginTop: '5px' }}><i className="material-icons" style={styles.volume}>volume_up</i></span></div>
+                                <div style={styles.learningWord}>{c.localHeader}<span style={{ marginTop: '5px' }}><i className="material-icons" style={styles.volume}>volume_up</i></span></div>
                             </div>
                             <div style={[styles.content, { fontSize: '13px' } ]}>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                              {c.localContent}
                             </div>
                         </div>
                     </div>
                     <div style={styles.descriptions}>
                         <div style={styles.languageForeign}>
                             <div style={[styles.header, { fontSize: '25px' } ]}>
-                              عناق
+                              {c.foreignHeader}
                             </div>
                             <div style={[{ fontFamily: 'Myriad Arabic', fontSize: '16px' }, styles.content]}>
-                              قد بلا دخول كانت كنقطة. ثم قادة ساعة للحكومة يبق. من سبتمبر وحرمان ذلك, يبق الضروري الثالث٬ الواقعة عل, هذه أي الأوروبيّون.
+                              {c.foreignContent}
                             </div>
                         </div>
                     </div>
@@ -189,6 +197,16 @@ class Main extends Component {
                     <i className="material-icons .md-5" style={styles.socialIcons}>favorite</i>
                   </div>
                 </div>
+                </div>
+        );
+      });
+
+
+      const
+        toggleEnabled = this.toggleEnabled;
+        return (
+            <div style={styles.mainContainer}>
+                {content}
             </div>
         );
     }
