@@ -188,13 +188,25 @@ const styles = {
     flex: '1 1 auto',
     backgroundSize: '100% 100%',
     display: 'flex',
+    flexFlow: 'row nowrap',
   },
   graphicNovelChildDivBottom: {
     backgroundImage: `url('assets/images/walkingdead_BOTTOM.png')`,
     flex: '1 1 auto',
     backgroundSize: '100% 100%',
     display: 'flex',
-  }
+  },
+  helpIcon: {
+    display: 'flex',
+    height: '7vmin',
+    width: '5.5vmin',
+  },
+  helpIconContainer: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    flexFlow: 'column nowrap',
+    alignItems: 'flex-end',
+  },
 };
 
 class GraphicNovel extends Component {
@@ -253,7 +265,13 @@ class GraphicNovel extends Component {
 
                 <div style={styles.graphicNovelMainDiv}>
                   <div style={styles.graphicNovelChildDivTop}>
-
+                    <div style={{ display: 'flex' }}></div>
+                    <div style={{ display: 'flex' }}></div>
+                    <div style={styles.helpIconContainer}>
+                      <div style={{ display: 'flex' }}></div>
+                      <div style={{ display: 'flex' }}></div>
+                      <img style={styles.helpIcon} src={'assets/images/help.png'} alt="help" />
+                    </div>
                   </div>
                   <div style={styles.graphicNovelChildDivBottom}>
 

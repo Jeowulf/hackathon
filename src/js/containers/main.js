@@ -16,6 +16,7 @@ const contentData = [{
   localHeader: 'Hugging',
   foreignContent: 'قد بلا دخول كانت كنقطة. ثم قادة ساعة للحكومة يبق. من سبتمبر وحرمان ذلك, يبق الضروري الثالث٬ الواقعة عل, هذه أي الأوروبيّون.',
   foreignHeader: 'عناق',
+  backgroundPhoto: 'assets/images/photo_HUGGING.png',
 },
 {
   localPicWord: 'behavior',
@@ -24,6 +25,7 @@ const contentData = [{
   localHeader: 'Hugging',
   foreignContent: 'قد بلا دخول كانت كنقطة. ثم قادة ساعة للحكومة يبق. من سبتمبر وحرمان ذلك, يبق الضروري الثالث٬ الواقعة عل, هذه أي الأوروبيّون.',
   foreignHeader: 'عناق',
+  backgroundPhoto: 'assets/images/photo_HUGGING.png',
 },
 {
   localPicWord: 'behavior',
@@ -32,6 +34,16 @@ const contentData = [{
   localHeader: 'Hugging',
   foreignContent: 'قد بلا دخول كانت كنقطة. ثم قادة ساعة للحكومة يبق. من سبتمبر وحرمان ذلك, يبق الضروري الثالث٬ الواقعة عل, هذه أي الأوروبيّون.',
   foreignHeader: 'عناق',
+  backgroundPhoto: 'assets/images/photo_HUGGING.png',
+},
+{
+  localPicWord: 'behavior',
+  foreignPicWord: 'behavior',
+  localContent: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  localHeader: 'Hugging',
+  foreignContent: 'قد بلا دخول كانت كنقطة. ثم قادة ساعة للحكومة يبق. من سبتمبر وحرمان ذلك, يبق الضروري الثالث٬ الواقعة عل, هذه أي الأوروبيّون.',
+  foreignHeader: 'عناق',
+  backgroundPhoto: 'assets/images/photo_HUGGING.png',
 }],
 styles = {
   mainContainer: {
@@ -78,7 +90,6 @@ styles = {
   },
   feedImage: {
     height: '55vh',
-    backgroundImage: `url('assets/images/photo_HUGGING.png')`,
     backgroundSize: '100%',
     width: '100vw',
     justifyContent: 'space-between',
@@ -173,7 +184,7 @@ class Main extends Component {
         return (
                 <div style={styles.scrollingContainer}>
                   <div style={[ styles.row ]}>
-                      <div style={styles.feedImage}>
+                      <div style={[styles.feedImage, { backgroundImage: `url(${c.backgroundPhoto})` }]}>
                           <div style={ { display: 'flex', flex: '5 1 auto' } }></div>
                           <div style={styles.behaviorRow}>
                               <span style={[styles.culturalnorm, { margin: '0px 5px', padding: '8px 4px', }]}>{c.localPicWord} | <span style={{fontWeight: 'normal'}}>{c.foreignPicWord}</span></span>
