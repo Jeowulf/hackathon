@@ -7,11 +7,29 @@ import Login from './login';
 import Longform from './longform';
 import GraphicNovel from './graphicNovel';
 import MenuAndSettings from './menuAndSettings';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 const contentData = [{
+  localPicWord: 'SPORTS ',
+  foreignPicWord: 'رياضات',
+  localContent: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  localHeader: 'Opening Day',
+  foreignContent: 'قد بلا دخول كانت كنقطة. ثم قادة ساعة للحكومة يبق. من سبتمبر وحرمان ذلك, يبق الضروري الثالث٬ الواقعة عل, هذه أي الأوروبيّون.',
+  foreignHeader: 'يوم الإفتتاح',
+  backgroundPhoto: 'assets/images/photo_OPENINGDAY.png',
+},
+{
+  localPicWord: 'IDIOMS',
+  foreignPicWord: 'رياضات',
+  localContent: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  localHeader: 'Raining cats and dogs',
+  foreignContent: 'قد بلا دخول كانت كنقطة. ثم قادة ساعة للحكومة يبق. من سبتمبر وحرمان ذلك, يبق الضروري الثالث٬ الواقعة عل, هذه أي الأوروبيّون.',
+  foreignHeader: 'السماء تمطر القطط والكلاب',
+  backgroundPhoto: 'assets/images/photo_RAINING.png',
+},
+{
   localPicWord: 'behavior',
-  foreignPicWord: 'behavior',
+  foreignPicWord: ' سلوك',
   localContent: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   localHeader: 'Hugging',
   foreignContent: 'قد بلا دخول كانت كنقطة. ثم قادة ساعة للحكومة يبق. من سبتمبر وحرمان ذلك, يبق الضروري الثالث٬ الواقعة عل, هذه أي الأوروبيّون.',
@@ -19,31 +37,13 @@ const contentData = [{
   backgroundPhoto: 'assets/images/photo_HUGGING.png',
 },
 {
-  localPicWord: 'behavior',
-  foreignPicWord: 'behavior',
+  localPicWord: 'movies',
+  foreignPicWord: 'أفلام',
   localContent: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   localHeader: 'Hugging',
-  foreignContent: 'قد بلا دخول كانت كنقطة. ثم قادة ساعة للحكومة يبق. من سبتمبر وحرمان ذلك, يبق الضروري الثالث٬ الواقعة عل, هذه أي الأوروبيّون.',
-  foreignHeader: 'عناق',
-  backgroundPhoto: 'assets/images/photo_HUGGING.png',
-},
-{
-  localPicWord: 'behavior',
-  foreignPicWord: 'behavior',
-  localContent: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  localHeader: 'Hugging',
-  foreignContent: 'قد بلا دخول كانت كنقطة. ثم قادة ساعة للحكومة يبق. من سبتمبر وحرمان ذلك, يبق الضروري الثالث٬ الواقعة عل, هذه أي الأوروبيّون.',
-  foreignHeader: 'عناق',
-  backgroundPhoto: 'assets/images/photo_HUGGING.png',
-},
-{
-  localPicWord: 'behavior',
-  foreignPicWord: 'behavior',
-  localContent: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  localHeader: 'Hugging',
-  foreignContent: 'قد بلا دخول كانت كنقطة. ثم قادة ساعة للحكومة يبق. من سبتمبر وحرمان ذلك, يبق الضروري الثالث٬ الواقعة عل, هذه أي الأوروبيّون.',
-  foreignHeader: 'عناق',
-  backgroundPhoto: 'assets/images/photo_HUGGING.png',
+  foreignContent: 'قد بلا دخول كانت كنقطة. ثم قادة ساعة للحكومة يبق. من سبتمبر وحرمان ذلك, يبق الضروري الثالث، الواقعة عل, هذه أي الأوروبيّون.',
+  foreignHeader: 'دارث فيدر',
+  backgroundPhoto: 'assets/images/photo_DARTHVADER.png',
 }],
 styles = {
   mainContainer: {
@@ -90,7 +90,7 @@ styles = {
   },
   feedImage: {
     height: '55vh',
-    backgroundSize: '100%',
+    backgroundSize: '100%, 100%',
     width: '100vw',
     justifyContent: 'space-between',
     display: 'flex',
@@ -177,6 +177,10 @@ class Main extends Component {
       console.log('hola')
     }
 
+    nextPage () {
+      browserHistory.push('/library');
+    }
+
     render() {
       let content = null;
 
@@ -233,7 +237,7 @@ class Main extends Component {
               <div style={[ styles.row, styles.topRow ]}>
                     <i className="material-icons md-18" style={styles.icons}>menu</i>
                     <img style={styles.menuLogo} src={'assets/images/menubar_LOGO.png'} alt="menuLogo" />
-                    <i className="material-icons md-18" style={styles.icons}>book</i>
+                    <i className="material-icons md-18" style={styles.icons} onClick={this.nextPage.bind(this)}>book</i>
                 </div>
                 {content}
             </div>

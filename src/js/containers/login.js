@@ -63,9 +63,6 @@ class Login extends Component {
     }
 
     componentDidMount() {
-           setTimeout(function(){
-            browserHistory.push('/main');
-         }, 5000);
     }
 
     componentWillReceiveProps() {
@@ -77,6 +74,10 @@ class Login extends Component {
     componentWillUnmount() {
     }
 
+    nextPage () {
+        browserHistory.push('/main');
+    }
+
     render() {
         //define your content- JSX variables and dynamic JSX
       const
@@ -85,7 +86,7 @@ class Login extends Component {
         //bind your functions to allow them access to the this functionality
         return (
             <div>
-                <div style={[styles.mainComponent]}>
+                <div style={[styles.mainComponent]} onClick={this.nextPage.bind(this)}>
                     <div style={[styles.logoDiv]}>
                         <img src="assets/images/logo.png" alt="1000 Faces Logo" style={[styles.logoImg]} />
                     </div>
