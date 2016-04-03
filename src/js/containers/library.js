@@ -284,10 +284,12 @@ class Library extends Component {
       browserHistory.push('/graphicnovel');
     }
 
-
     toggleDropMenu() {
         this.setState({ down: !this.state.down });
         console.log('dropmenu dropped');
+
+    onClickChemistry () {
+      browserHistory.push('/chemistry');
     }
 
     render() {
@@ -413,7 +415,7 @@ class Library extends Component {
 
 
 
-        contentPiece = contentPieceData.map((c) => {
+        contentPiece = contentPieceData.map((c, idx) => {
             return (
                 <div style={styles.content}>
                     <div style={[styles.contentAssets, { backgroundImage: `url(${c.photo})` }]}>
@@ -429,7 +431,7 @@ class Library extends Component {
                         <div style={styles.contentForeignAuthor}>{c.foreignAuthor}</div>
                     </div>
                     <div style={styles.chevronContainer}>
-                        <i className="material-icons md-36" style={[styles.chevrons, { fontSize: '30px' }]} onClick={this.onClickGraphicNovel.bind(this)}>chevron_right</i>
+                        <i className="material-icons md-36" style={[styles.chevrons, { fontSize: '30px' }]} onClick={idx === 3 ? this.onClickGraphicNovel.bind(this) : this.onClickChemistry.bind(this)}>chevron_right</i>
                     </div>
                 </div>
             );
