@@ -8,7 +8,9 @@ import { Link } from 'react-router';
 //use flexbox for styling "https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
 const styles = {
     mainComponent: {
-        backgroundColor: '#4A90E2',
+        backgroundImage: `url('assets/images/photo_SPLASH.png')`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
         display: 'flex',
         flexFlow: 'column wrap',
         height: '100vh',
@@ -27,8 +29,12 @@ const styles = {
         maxWidth: '75%'
     },
     startButtonDiv:{
-        backgroundColor: 'orange',
-        color: 'blue',
+        color: '#4A90E2',
+        // borderColor: 'white',
+        // borderStyle: 'solid',
+        // borderWidth: '2px',
+        backgroundColor: 'white',
+        marginTop: '5%',
         display: 'flex',
         height: '5%',
         width: '30%',
@@ -36,6 +42,11 @@ const styles = {
         alignItems: 'center'
     }
 };
+
+//code for optional start button on start page
+//   <div style={styles.startButtonDiv}>
+//     <Link to="Main">START</Link>
+//   </div>
 
 class Login extends Component {
     constructor(props) {
@@ -78,9 +89,7 @@ class Login extends Component {
                     <div style={[styles.logoDiv]}>
                         <img src="assets/images/logo.png" alt="1000 Faces Logo" style={[styles.logoImg]} />
                     </div>
-                    <div style={styles.startButtonDiv}>
-                        <Link to="Main">Start</Link>
-                    </div>
+
                 </div>
             </div>
         );
