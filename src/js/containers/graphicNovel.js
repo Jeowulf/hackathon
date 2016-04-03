@@ -4,10 +4,197 @@ import Radium from 'radium';
 
 //define your styling with Javascript objects
 //use flexbox for styling "https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+
 const styles = {
-    mainComponent: {
-        backgroundColor: 'blue',
-    },
+  mainContainer: {
+    width: '100vw',
+    height: '100vh',
+    display: 'flex',
+    flexFlow: 'column nowrap',
+  },
+  row: {
+    display: 'flex',
+    flexFlow: 'row nowrap',
+    justifyContent: 'space-between',
+  },
+  col: {
+    display: 'flex',
+    flexFlow: 'col-nowrap',
+    justifyContent: 'space-between',
+  },
+  topRow: {
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: '#4A90E2',
+    padding: '10px',
+    height: '9.5vh',
+  },
+  icons: {
+    color: 'white',
+  },
+  menuLogo: {
+    padding: '2px',
+    width: '30vmin',
+    height: '10vmin',
+  },
+  culturalnorm: {
+    backgroundColor: '#4A90E2',
+    color: 'white',
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    border: '1px solid grey',
+    alignItems: 'center',
+    alignContent: 'center',
+  },
+  feedImage: {
+    height: '55vh',
+    backgroundImage: `url('assets/images/photo_HUGGING.png')`,
+    backgroundSize: '100%',
+    width: '100vw',
+    justifyContent: 'space-between',
+    display: 'flex',
+    flexFlow: 'column nowrap',
+    padding: '10px',
+  },
+  descriptions: {
+    width: '50vw',
+    padding: '5px',
+  },
+  languageLocal: {
+    display: 'flex',
+    flexFlow: 'column nowrap',
+  },
+  languageForeign: {
+    display: 'flex',
+    flexFlow: 'column nowrap',
+  },
+  header: {
+    display: 'flex',
+    flexFlow: 'row nowrap',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+  content: {
+
+  },
+  behaviorRow: {
+    display: 'flex',
+    flexFlow: 'row nowrap',
+    height: '5vh',
+    display: 'flex',
+    alignItems: 'center',
+  },
+  volume: {
+    color: '#4A90E2',
+    height: '4vh',
+    width: '4vh',
+    marginLeft: '5px',
+  },
+  learningWord: {
+    fontWeight: 500,
+    fontSize: '20px',
+    display: 'flex',
+    alignContent: 'center',
+  },
+  dropmenu: {
+    backgroundColor: '#FFFFFF',
+    height: '100vh',
+    width: '21em',
+    position: 'fixed',
+    top: '0',
+    left: '0'
+  },
+  dropmenuTopDiv: {
+    backgroundColor: '#E6E6E6',
+    height: '9.5vh',
+    width: '21em'
+  },
+  closeIcon: {
+    position: 'absolute',
+    right: 0,
+    top: '2vh',
+    display: 'flex',
+    marginRight: '.65em',
+    color: '#4A90E2',
+    fontSize: '36px'
+  },
+  nameForeign: {
+    fontSize: '34px',
+    fontFamily: 'Myriad Arabic',
+    position: 'absolute',
+    left: 18,
+    top: 1
+  },
+  robotoText: {
+    fontFamily: 'Roboto-Light',
+    fontSize: '13px',
+    color: '#4A4A4A',
+    position: 'absolute',
+    left: 18,
+    top: 42
+  },
+  RobotoMedium: {
+      /* MY ACCOUNT | حسابي: */
+    fontFamily: 'Roboto-Medium',
+    fontSize: '14px',
+    color: '#7F7F7F',
+    position: 'absolute',
+    left: 18,
+    top: '2.3vh'
+  },
+  dropDownMainTextDiv: {
+    height: '8vh',
+    width:'21em',
+    position: 'relative',
+    top: 0,
+    left: 0
+  },
+  robotoLight14: {
+    fontFamily: 'Roboto-Light',
+    fontSize: '14px',
+    color: '#4A4A4A',
+    position: 'relative',
+    left: 56,
+    top: '1.2vh'
+  },
+  descriptionForeign: {
+    fontSize: '14px',
+    fontFamily: 'Myriad Arabic',
+    position: 'relative',
+    left: 56,
+    top: '1vh'
+  },
+  menuIcons: {
+    color: '#4A90E2',
+    fontSize: '26px',
+    position: 'absolute',
+    left: 12,
+    top: 14
+  },
+  bottomLine: {
+    borderBottomColor: '#E6E6E6',
+    borderBottomWidth: 'thin',
+    borderBottomStyle: 'solid'
+  },
+  graphicNovelMainDiv: {
+    display: 'flex',
+    flexFlow: 'column nowrap',
+    flex: 'auto',
+    alignContent: 'stretch',
+    justifyContent: 'flex-start',
+  },
+  graphicNovelChildDivTop: {
+    backgroundImage: `url('assets/images/walkingdead_TOP.png')`,
+    flex: '1 1 auto',
+    backgroundSize: '100% 100%',
+    display: 'flex',
+  },
+  graphicNovelChildDivBottom: {
+    backgroundImage: `url('assets/images/walkingdead_BOTTOM.png')`,
+    flex: '1 1 auto',
+    backgroundSize: '100% 100%',
+    display: 'flex',
+  }
 };
 
 class GraphicNovel extends Component {
@@ -15,6 +202,8 @@ class GraphicNovel extends Component {
         super(props);
         this.state = {
             enabled: true,
+            down: false
+
         };
     }
     //set component initial state above
@@ -28,37 +217,60 @@ class GraphicNovel extends Component {
     }
 
     componentDidMount() {
+        console.log('holla at cha boi')
     }
 
     componentWillReceiveProps() {
     }
 
     componentDidUpdate() {
+        if (this.state.down) {
+            console.log('its working');
+        }
     }
 
     componentWillUnmount() {
     }
 
+    toggleDropMenu() {
+        this.setState({ down: !this.state.down });
+        console.log('dropmenu dropped');
+    }
+
     render() {
-        //define your content- JSX variables and dynamic JSX
+
       const
-        special = this.props.special,
-        toggleEnabled = this.toggleEnabled;
-        //return your JSX with defined content (anything in the render method occurs anytime a change occurs, to limit rerendering add changes to component lifecycle)
-        //bind your functions to allow them access to the this functionality
+        toggleEnabled = this.toggleEnabled,
+        toggleDropMenu = this.toggleDropMenu;
+
         return (
-            <div style={styles.mainComponent}>
-                Your component build goes here
+            <div style={styles.mainContainer}>
+                <div style={[ styles.row, styles.topRow ]}>
+                    <i className="material-icons md-18" style={styles.icons} onClick={toggleDropMenu.bind(this)}>chevron_left</i>
+                    <img style={styles.menuLogo} src={'assets/images/menubar_LOGO.png'} alt="menuLogo" />
+                    <i className="material-icons md-18" style={styles.icons}>view_list</i>
+                </div>
+
+                <div style={styles.graphicNovelMainDiv}>
+                  <div style={styles.graphicNovelChildDivTop}>
+
+                  </div>
+                  <div style={styles.graphicNovelChildDivBottom}>
+
+                  </div>
+                </div>
             </div>
+
         );
     }
 }
+
 //required to allow the inline styling using radium
 GraphicNovel = Radium(GraphicNovel);
 
 //define your incoming props
 GraphicNovel.propTypes = {
-    special: PropTypes.string.isRequired,
+
 }
 
 export default GraphicNovel;
