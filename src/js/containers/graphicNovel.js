@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Radium from 'radium';
+import Main from './library';
+import { Link, browserHistory } from 'react-router';
 
 //define your styling with Javascript objects
 //use flexbox for styling "https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
@@ -299,6 +301,10 @@ class GraphicNovel extends Component {
         }
     }
 
+    nextPage () {
+      browserHistory.push('/library');
+    }
+
     render() {
       let
         expandedMiddle = (<div></div>),
@@ -406,7 +412,7 @@ class GraphicNovel extends Component {
                         <div style={[ styles.row, styles.topRow ]}>
                         <i className="material-icons md-18" style={styles.icons} onClick={toggleDropMenu.bind(this)}>chevron_left</i>
                         <img style={styles.menuLogo} src={'assets/images/menubar_LOGO.png'} alt="menuLogo" />
-                        <i className="material-icons md-18" style={styles.icons}>view_list</i>
+                        <i className="material-icons md-18" style={styles.icons} onClick={this.nextPage.bind(this)}>view_list</i>
                         </div>
                     </div>
                 {content}
