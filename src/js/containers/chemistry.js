@@ -41,6 +41,7 @@ styles = {
     backgroundColor: '#4A90E2',
     padding: '10px',
     height: '9.5vh',
+    boxShadow: '0px 3px 10px #26466D',
   },
   icons: {
     color: 'white',
