@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Radium from 'radium';
+import Main from './main';
+import { Link, browserHistory } from 'react-router';
 
 //define your styling with Javascript objects
 //use flexbox for styling "https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
@@ -172,6 +174,14 @@ class Library extends Component {
     componentWillUnmount() {
     }
 
+    nextPage () {
+      browserHistory.push('/main');
+    }
+
+    onClickGraphicNovel () {
+      browserHistory.push('/graphicnovel');
+    }
+
     render() {
         let contentPiece = null;
 
@@ -191,7 +201,7 @@ class Library extends Component {
                         <div style={styles.contentForeignAuthor}>{c.foreignAuthor}</div>
                     </div>
                     <div style={styles.chevronContainer}>
-                        <i className="material-icons md-36" style={[styles.chevrons, { fontSize: '30px' }]}>chevron_right</i>
+                        <i className="material-icons md-36" style={[styles.chevrons, { fontSize: '30px' }]} onClick={this.onClickGraphicNovel.bind(this)}>chevron_right</i>
                     </div>
                 </div>
             );
@@ -201,7 +211,7 @@ class Library extends Component {
               <div style={[ styles.row, styles.topRow ]}>
                     <i className="material-icons md-18" style={styles.icons}>menu</i>
                     <img style={styles.menuLogo} src={'assets/images/menubar_LOGO.png'} alt="menuLogo" />
-                    <i className="material-icons md-18" style={styles.icons}>book</i>
+                    <i className="material-icons md-18" style={styles.icons} onClick={this.nextPage.bind(this)}>panorama</i>
               </div>
               <div style={[ styles.row, styles.plusRow ]}>
                 <i className="material-icons md-36" style={[styles.icons, { fontSize: '30px' }]}>add</i>
