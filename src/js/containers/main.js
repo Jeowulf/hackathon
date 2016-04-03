@@ -39,7 +39,7 @@ styles = {
     fontFamily: 'Roboto',
   },
   scrollingContainer: {
-    height: '90vh',
+    height: '86vh',
   },
   row: {
     display: 'flex',
@@ -56,7 +56,7 @@ styles = {
     alignItems: 'center',
     backgroundColor: '#4A90E2',
     padding: '10px',
-    height: '9.5vh',
+    height: '8vh',
   },
   icons: {
     color: 'white',
@@ -133,7 +133,7 @@ styles = {
     alignContent: 'center',
   },
   bottomDiv: {
-    marginTop: '10px',
+    marginTop: '3px',
     padding: '5px',
     borderTop: '1px solid #d3d3d3',
     display: 'flex',
